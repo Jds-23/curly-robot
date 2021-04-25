@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  background-color: black;
+  border-bottom: 1px solid lightcyan;
+  justify-content: space-between;
+}
+.header-nav {
+  display: flex;
+}
