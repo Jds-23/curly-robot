@@ -1,15 +1,26 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css'
+import Header from '../component/header'
+import styled from 'styled-components';
+import LeftNav from '../component/LeftNav';
+import RightNav from '../component/RightNav';
 const Home = () => {
   return (
     <div>
       <Head>
-        <title>Jds</title>
+        <title>Joydeep</title>
       </Head>
-      <div className={styles.container}>
+      <Header />
+      <LeftNav />
+      <Container>
         <h1>Hello, This is Joydeep's Website</h1>
-      </div>
+      </Container>
+      <RightNav />
     </div>
   )
 }
 export default Home;
+
+const Container = styled.div`
+min-height:100vh;
+background-color:#00071C;
+`
