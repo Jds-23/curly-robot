@@ -1,9 +1,10 @@
 import Head from 'next/head';
-import Header from '../component/header'
+import Header from '@components/header'
 import styled from 'styled-components';
-import LeftNav from '../component/LeftNav';
-import RightNav from '../component/RightNav';
-import Hero from '../component/Hero';
+import LeftNav from '@components//LeftNav';
+import RightNav from '@components//RightNav';
+import Hero from '@components//Hero';
+import AboutMe from '@components//AboutMe';
 const Home = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ const Home = () => {
       <LeftNav />
       <Container>
         <Hero />
+        <AboutMe />
       </Container>
       <RightNav />
     </div>
