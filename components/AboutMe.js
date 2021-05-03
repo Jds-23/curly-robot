@@ -13,6 +13,37 @@ const AboutMe = () => {
                     <br />
                 Here are a few technologies I've been working with recently:
                 </p>
+                <TechList>
+                    <TechListItem>
+                        ReactJs
+                    </TechListItem>
+                    <TechListItem>
+                        JavaScript(ES6+)
+                    </TechListItem>
+                    <TechListItem>
+                        CSS/SCSS
+                    </TechListItem>
+
+                    <TechListItem>
+                        TypeScript
+                    </TechListItem>
+                    <TechListItem>
+                        NextJs
+                    </TechListItem>
+                    <TechListItem>
+                        Firebase
+                    </TechListItem>
+
+                    <TechListItem>
+                        StyledComponents
+                    </TechListItem>
+                    <TechListItem>
+                        MaterialUI
+                    </TechListItem>
+                    <TechListItem>
+                        Node/Express.js
+                    </TechListItem>
+                </TechList>
             </TextBox>
         </Container >
     )
@@ -40,6 +71,15 @@ const TextBox = styled.div`
 width:565px;
 font-family: Karla;
 font-style: normal;
-font-weight: normal;
+font-weight: 400;
 font-size: 22px;
 color:#fff`
+const TechList = styled.div`
+display:grid;
+gap: 1rem;
+grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+`
+const TechListItem = styled.div`
+font-size:18px;
+font-weight:300;
+`
