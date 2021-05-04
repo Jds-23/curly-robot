@@ -5,6 +5,7 @@ import LeftNav from '@components//LeftNav';
 import RightNav from '@components//RightNav';
 import Hero from '@components//Hero';
 import AboutMe from '@components//AboutMe';
+import Work from '@components/Work';
 const Home = () => {
   return (
     <div>
@@ -16,6 +17,7 @@ const Home = () => {
       <Container>
         <Hero />
         <AboutMe />
+        <Work />
       </Container>
       <RightNav />
     </div>
