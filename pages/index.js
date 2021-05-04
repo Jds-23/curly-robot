@@ -6,6 +6,7 @@ import RightNav from '@components//RightNav';
 import Hero from '@components//Hero';
 import AboutMe from '@components//AboutMe';
 import Work from '@components/Work';
+import Footer from '@components/Footer';
 const Home = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const Home = () => {
         <Hero />
         <AboutMe />
         <Work />
+        <Footer />
       </Container>
       <RightNav />
     </div>
