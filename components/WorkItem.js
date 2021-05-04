@@ -1,44 +1,33 @@
 import { useState } from "react"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 
-const WorkItem = ({ imgSrc, desc, projectName }) => {
+const WorkItem = ({ works }) => {
     const [state, setState] = useState(0)
 
     return (
         <Container>
-            <CarouselItemContainer isSelected={state === 0}>
-                <TextBoxAnimated isSelected={state === 0}>
-                    <Title>
-                        {projectName}
-                    </Title>
-                    <Description>
-                        {desc}
-                    </Description>
-                </TextBoxAnimated>
-                <ImgAnimated isSelected={state === 0} src={imgSrc} />
-            </CarouselItemContainer>
-            <CarouselItemContainer isSelected={state === 1}>
-                <TextBoxAnimated isSelected={state === 1}>
-                    <Title>
-                        {projectName}
-                    </Title>
-                    <Description>
-                        {desc}
-                    </Description>
-                </TextBoxAnimated >
-                <ImgAnimated isSelected={state === 1} src={"./electrix.png"} />
-            </CarouselItemContainer>
-            <CarouselItemContainer isSelected={state === 2}>
-                <TextBoxAnimated isSelected={state === 2}>
-                    <Title>
-                        {projectName}
-                    </Title>
-                    <Description>
-                        {desc}
-                    </Description>
-                </TextBoxAnimated>
-                <ImgAnimated isSelected={state === 2} src={"./dwine.png"} />
-            </CarouselItemContainer>
+            {works.map(({ id, desc, projectName, imgSrc, techStack }) => (
+                <CarouselItemContainer isSelected={state === id} key={id}>
+                    <TextBoxAnimated isSelected={state === id}>
+                        <TechList>
+                            {techStack.map((tech, id) => {
+                                return (
+                                    <TechListItem key={id}>
+                                        {tech}
+                                    </TechListItem>
+                                )
+                            })}
+                        </TechList>
+                        <Title>
+                            {projectName}
+                        </Title>
+                        <Description>
+                            {desc}
+                        </Description>
+                    </TextBoxAnimated >
+                    <ImgAnimated isSelected={state === id} src={imgSrc} />
+                </CarouselItemContainer>
+            ))}
             <CarouselNav>
                 <CarouselNavButton isSelected={state === 0} onClick={() => setState(0)}></CarouselNavButton>
                 <CarouselNavButton isSelected={state === 1} onClick={() => setState(1)}></CarouselNavButton>
@@ -127,10 +116,14 @@ const CarouselNavButton = styled.button`
     outline:none;
     cursor: pointer;
 `
-const animation = keyframes`
-0%{
-    width:0;opacity:0;
-}
-100%{
-    width:100%;opacity:1;
-}`
+const TechList = styled.div`
+display:grid;
+gap: 1rem;
+grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+
+`
+const TechListItem = styled.div`
+font-size:14px;
+font-weight:300;
+opacity:0.6;
+`
