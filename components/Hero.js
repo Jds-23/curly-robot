@@ -1,6 +1,7 @@
 import styled from "styled-components"
-
+import typeWriter from "./TypeWriter"
 const Hero = () => {
+    const words = ["Web Applications.", "eCommerce Stores.", "Progressive Web Applications."]
     return (
         <Container>
             <Name>
@@ -10,7 +11,7 @@ const Hero = () => {
                 Passionate JavaScript Developer, Student and Optimist.
             </Title>
             <SubTitle>
-                I develop <Span>Web Application</Span>
+                I develop <Span>{typeWriter(words)}</Span>
             </SubTitle>
         </Container>
     )
