@@ -4,7 +4,7 @@ const LeftNav = () => {
     return (
         <Container>
             <Nav>
-                <EmailLink>
+                <EmailLink target="_blank" rel="noopener noreferrer" href="mailto:joydeepsingha68.work@gmail.com">
                     joydeepsingha68.work@gmail.com
                 </EmailLink>
             </Nav>
