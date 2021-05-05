@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import typeWriter from "./TypeWriter"
+import typewriter from "@utils/typewriter"
 const Hero = () => {
     const words = ["Web Applications.", "eCommerce Stores.", "Progressive Web Applications."]
     return (
@@ -11,7 +11,7 @@ const Hero = () => {
                 Passionate JavaScript Developer, Student and Optimist.
             </Title>
             <SubTitle>
-                I develop <Span>{typeWriter(words)}</Span>
+                I develop <Span>{typewriter(words)}</Span>
             </SubTitle>
         </Container>
     )
