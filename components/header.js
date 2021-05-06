@@ -1,12 +1,15 @@
 import styled from "styled-components"
 
-const Header = () => {
+const Header = ({ heroScrollIntoView,
+    aboutMeScrollIntoView,
+    workScrollIntoView }) => {
     return (
         <Container>
             <Brand src="./joydeep.svg" />
             <Nav>
-                <NavItem>About Me</NavItem>
-                <NavItem>Work</NavItem>
+                <NavItem onClick={heroScrollIntoView}>Home</NavItem>
+                <NavItem onClick={aboutMeScrollIntoView}>About Me</NavItem>
+                <NavItem onClick={workScrollIntoView}>Work</NavItem>
                 <NavItem>Contact</NavItem>
             </Nav>
         </Container>
