@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const LeftNav = () => {
+const LeftNav = ({ isTablet }) => {
     return (
-        <Container>
+        <Container isTablet={isTablet}>
             <Nav>
                 <EmailLink target="_blank" rel="noopener noreferrer" href="mailto:joydeepsingha68.work@gmail.com">
                     joydeepsingha68.work@gmail.com
@@ -22,6 +22,8 @@ height:100vh;
 display:flex;
 align-items:flex-end;
 justify-content:center;
+${props => props.isTablet && 'right:25px;'}
+${props => props.isTablet && 'width:25px;'}
 `
 const Nav = styled.div`
 display:flex;
@@ -44,6 +46,7 @@ opacity: 0.6;
 writing-mode:vertical-rl;
 transition:0.25s ;
 cursor: pointer;
+${props => props.isTablet && 'font-size:12px;'}
 &:hover{
     color: #7CDEDC;
     opacity: 1;
