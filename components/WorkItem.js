@@ -1,15 +1,17 @@
 import { useState } from "react"
 import styled from "styled-components"
+import { useMediaQuery } from 'react-responsive';
 
 const WorkItem = ({ works }) => {
     const [state, setState] = useState(0)
+    const isTablet = useMediaQuery({ query: '(max-width: 768px)' })
 
     return (
         <Container>
             {works.map(({ id, desc, projectName, imgSrc, techStack }) => (
-                <CarouselItemContainer isSelected={state === id} key={id}>
-                    <TextBoxAnimated isSelected={state === id}>
-                        <TechList>
+                <CarouselItemContainer isTablet={isTablet} isSelected={state === id} key={id}>
+                    <TextBoxAnimated isTablet={isTablet} isSelected={state === id}>
+                        <TechList isTablet={isTablet}>
                             {techStack.map((tech, id) => {
                                 return (
                                     <TechListItem key={id}>
@@ -21,14 +23,14 @@ const WorkItem = ({ works }) => {
                         <Title>
                             {projectName}
                         </Title>
-                        <Description>
+                        <Description isTablet={isTablet}>
                             {desc}
                         </Description>
                     </TextBoxAnimated >
-                    <ImgAnimated isSelected={state === id} src={imgSrc} />
+                    <ImgAnimated isTablet={isTablet} isSelected={state === id} src={imgSrc} />
                 </CarouselItemContainer>
             ))}
-            <CarouselNav>
+            <CarouselNav isTablet={isTablet}>
                 <CarouselNavButton isSelected={state === 0} onClick={() => setState(0)}></CarouselNavButton>
                 <CarouselNavButton isSelected={state === 1} onClick={() => setState(1)}></CarouselNavButton>
                 <CarouselNavButton isSelected={state === 2} onClick={() => setState(2)}></CarouselNavButton>
@@ -48,7 +50,7 @@ const CarouselItemContainer = styled.div`
 z-index: ${props => props.isSelected ? `2` : `1`};
 display:grid;
 gap:30px;
-grid-template-columns:minmax(168px,4fr) minmax(336px,8fr);
+${props => props.isTablet ? "grid-template-rows:1fr 1fr;" : "grid-template-columns:minmax(168px,4fr) minmax(336px,8fr);"}
 overflow:hidden;
 height:auto;
 &:nth-child(n+2){
@@ -61,13 +63,15 @@ const Img = styled.img`
 object-fit:contain;
 width:100%;
 border-radius:5px;
-transform:translateY(100%);
 opacity:  0;
 transition: all 0.75s ease-in-out;
+height:auto;
+${props => props.isTablet && "grid-row:1/1;"}
+${props => props.isTablet ? "transform:translateX(-100%);" : "transform:translateY(-100%);"}
 `
 
 const ImgAnimated = styled(Img)`
-    ${props => props.isSelected && `transform:translateY(0);`}
+${props => props.isTablet ? (props.isSelected && "transform:translateX(0%);") : (props.isSelected && "transform:translateY(0%);")}
     ${props => props.isSelected && `opacity:1;`}
 `
 const TextBox = styled.div`
@@ -75,19 +79,22 @@ color:#fff;
 display:flex;
 flex-direction:column;
 justify-content:center;
-transform:translateX(-100%);
 opacity:  0;
 transition: all 0.75s ease-in-out;
 height:auto;
+${props => props.isTablet && "grid-row:2/2;"}
+${props => props.isTablet && "align-items:center;"}
+${props => props.isTablet ? "transform:translateY(100%);" : "transform:translateX(-100%);"}
 `
 const TextBoxAnimated = styled(TextBox)`
-${props => props.isSelected && `transform:translateX(0);`}
-    ${props => props.isSelected && `opacity:1;`}
+${props => props.isTablet ? (props.isSelected && "transform:translateY(0%);") : (props.isSelected && "transform:translateX(0%);")}
+${props => props.isSelected && `opacity:1;`}
 `
 const Description = styled.p`
 width:100%;
 font-size:22px;
 z-index: -1;
+${props => props.isTablet && "text-align:center;"}
 `
 const Title = styled.h3`
 color:#fff;
@@ -98,12 +105,14 @@ const CarouselNav = styled.div`
     display: flex;
     position: absolute;
     width: 33%;
+    ${props => props.isTablet && 'width:100%;'}
     box-sizing: border-box;
     height: auto;
     bottom: 16px;
     left: 0;
     z-index: 5;
     padding: 0px 24px;
+    ${props => props.isTablet && 'padding: 0px 25%;'}
 `
 const CarouselNavButton = styled.button`
     width: calc(100% / 3 - 8px);
@@ -120,7 +129,7 @@ const TechList = styled.div`
 display:grid;
 gap: 1rem;
 grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-
+min-width:25%;
 `
 const TechListItem = styled.div`
 font-size:14px;
