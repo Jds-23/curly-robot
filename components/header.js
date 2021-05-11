@@ -1,16 +1,16 @@
-import styled from "styled-components"
-
+import styled from "styled-components";
+import { useMediaQuery } from 'react-responsive';
 const Header = ({ heroScrollIntoView,
     aboutMeScrollIntoView,
     workScrollIntoView }) => {
+    const isMobile = useMediaQuery({ query: '(max-width: 425px)' })
     return (
-        <Container>
+        <Container isMobile={isMobile}>
             <Brand src="./joydeep.svg" />
             <Nav>
                 <NavItem onClick={heroScrollIntoView}>Home</NavItem>
                 <NavItem onClick={aboutMeScrollIntoView}>About Me</NavItem>
                 <NavItem onClick={workScrollIntoView}>Work</NavItem>
-                <NavItem>Contact</NavItem>
             </Nav>
         </Container>
     )
@@ -29,6 +29,7 @@ const Container = styled.div`
     position:fixed;
     top:0;
     z-index:30;
+    ${props => props.isMobile && 'padding:0 15px;'}
 `
 const Brand = styled.img`
 object-fit:contain;
