@@ -1,19 +1,19 @@
 import styled from "styled-components"
 
-const AboutMe = ({ isTablet }) => {
+const AboutMe = ({ isTablet, isMobile }) => {
     return (
         <Container isTablet={isTablet}>
-            <ImgBox isTablet={isTablet}>
+            <ImgBox isMobile={isMobile} isTablet={isTablet}>
                 <Img src="./my-image.jpg" />
             </ImgBox>
-            <TextBox>
+            <TextBox isMobile={isMobile}>
                 <p style={{ textAlign: isTablet ? "center" : 'left' }}>
                     Hey! My name is Joydeep Singha and I enjoy building stuffs. I genuinely enjoy transforming challenging UI designs into real-life applications with pixel-perfect precision. My goal is to always write code in a manner that makes the application not only efficient but also scalable.
                 <br />
                     <br />
                 Here are a few technologies I've been working with recently:
                 </p>
-                <TechList>
+                <TechList isMobile={isMobile}>
                     <TechListItem>
                         ReactJs
                     </TechListItem>
@@ -62,6 +62,7 @@ const ImgBox = styled.div`
 border-radius: 5px;
 height:fit-content;
 max-width:400px;
+${props => props.isMobile && 'max-width:300px;'}
 `
 const Img = styled.img`
 border-radius: 5px;
@@ -76,15 +77,17 @@ font-weight: 400;
 font-size: 22px;
 color:#fff;
 height:fit-content;
+${props => props.isMobile && 'font-size: 18px;'}
 `
 
 const TechList = styled.div`
 display:grid;
 gap: 1rem;
 grid-row-gap:21px;
-grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+font-size:18px;
+${props => props.isMobile && 'font-size: 14px;'}
 `
 const TechListItem = styled.div`
-font-size:18px;
 font-weight:300;
 `

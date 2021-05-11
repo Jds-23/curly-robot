@@ -25,11 +25,14 @@ const Container = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background-color:#00071C;
+    /* background-color:#00071C; */
     position:fixed;
     top:0;
     z-index:30;
+    background: rgba(0, 7, 28, 0.3);
+backdrop-filter: blur(4px);
     ${props => props.isMobile && 'padding:0 15px;'}
+    ${props => props.isMobile && 'height:50px;'}
 `
 const Brand = styled.img`
 object-fit:contain;

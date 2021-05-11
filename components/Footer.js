@@ -1,9 +1,10 @@
 import styled from "styled-components"
-
+import { useMediaQuery } from 'react-responsive';
 const Footer = () => {
+    const isMobile = useMediaQuery({ query: '(max-width: 425px)' })
     return (
-        <Container>
-            <Text>
+        <Container isMobile={isMobile}>
+            <Text isMobile={isMobile}>
                 Designed {"&"} Built by Me.
             </Text>
         </Container>
@@ -17,6 +18,7 @@ width:100%;
 display:flex;
 align-items:center;
 height:150px;
+${props => props.isMobile && 'height:40px;'}
 `
 const Text = styled.h6`
 width:100%;
@@ -24,4 +26,5 @@ font-size:22px;
 color:#7CDEDC;
 font-weight:400;
 text-align:right;
+${props => props.isMobile && 'font-size:16px;'}
 `

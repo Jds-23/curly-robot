@@ -57,9 +57,9 @@ const Home = () => {
             {!isMobile && <LeftNav isTablet={isTablet} />}
             <Container isMobile={isMobile} isTablet={isTablet}>
                 <span ref={heroRef} />
-                <Hero isTablet={isTablet} />
+                <Hero isMobile={isMobile} isTablet={isTablet} />
                 <span ref={aboutMeRef} />
-                <AboutMe isTablet={isTablet} />
+                <AboutMe isMobile={isMobile} isTablet={isTablet} />
                 <span ref={workRef} />
                 <Work />
                 <Footer />

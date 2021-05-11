@@ -5,13 +5,14 @@ import { useMediaQuery } from 'react-responsive';
 const WorkItem = ({ works }) => {
     const [state, setState] = useState(0)
     const isTablet = useMediaQuery({ query: '(max-width: 768px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 425px)' })
 
     return (
         <Container>
             {works.map(({ id, desc, projectName, imgSrc, techStack }) => (
                 <CarouselItemContainer isTablet={isTablet} isSelected={state === id} key={id}>
                     <TextBoxAnimated isTablet={isTablet} isSelected={state === id}>
-                        <TechList isTablet={isTablet}>
+                        <TechList isMobile={isMobile} isTablet={isTablet}>
                             {techStack.map((tech, id) => {
                                 return (
                                     <TechListItem key={id}>
@@ -20,10 +21,10 @@ const WorkItem = ({ works }) => {
                                 )
                             })}
                         </TechList>
-                        <Title>
+                        <Title isMobile={isMobile}>
                             {projectName}
                         </Title>
-                        <Description isTablet={isTablet}>
+                        <Description isMobile={isMobile} isTablet={isTablet}>
                             {desc}
                         </Description>
                     </TextBoxAnimated >
@@ -95,11 +96,13 @@ width:100%;
 font-size:22px;
 z-index: -1;
 ${props => props.isTablet && "text-align:center;"}
+${props => props.isMobile && 'font-size:18px;'}
 `
 const Title = styled.h3`
 color:#fff;
 font-size:24px;
 margin-bottom:1px;
+${props => props.isMobile && 'font-size:21px;'}
 `
 const CarouselNav = styled.div`
     display: flex;
@@ -130,6 +133,7 @@ display:grid;
 gap: 1rem;
 grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
 min-width:25%;
+${props => props.isMobile && 'min-width:50%;'}
 `
 const TechListItem = styled.div`
 font-size:14px;
