@@ -84,9 +84,10 @@ const TechList = styled.div`
 display:grid;
 gap: 1rem;
 grid-row-gap:21px;
-grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
 font-size:18px;
 ${props => props.isMobile && 'font-size: 14px;'}
+${props => props.isMobile && 'grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));'}
 `
 const TechListItem = styled.div`
 font-weight:300;
