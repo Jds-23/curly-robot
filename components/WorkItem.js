@@ -84,18 +84,16 @@ opacity:  0;
 transition: all 0.75s ease-in-out;
 height:auto;
 ${props => props.isTablet && "grid-row:2/2;"}
-${props => props.isTablet && "align-items:center;"}
-${props => props.isTablet ? "transform:translateY(100%);" : "transform:translateX(-100%);"}
+transform:translateX(-100%);
 `
 const TextBoxAnimated = styled(TextBox)`
-${props => props.isTablet ? (props.isSelected && "transform:translateY(0%);") : (props.isSelected && "transform:translateX(0%);")}
+${props => props.isSelected && "transform:translateX(0%);"}
 ${props => props.isSelected && `opacity:1;`}
 `
 const Description = styled.p`
 width:100%;
 font-size:22px;
 z-index: -1;
-${props => props.isTablet && "text-align:center;"}
 ${props => props.isMobile && 'font-size:18px;'}
 `
 const Title = styled.h3`
