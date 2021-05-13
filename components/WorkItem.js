@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useMediaQuery } from 'react-responsive';
 
@@ -6,6 +6,13 @@ const WorkItem = ({ works }) => {
     const [state, setState] = useState(0)
     const isTablet = useMediaQuery({ query: '(max-width: 768px)' })
     const isMobile = useMediaQuery({ query: '(max-width: 425px)' })
+
+    useEffect(() => {
+        const timeout2 = setTimeout(() => {
+            setState((prev) => (prev + 1) % works.length);
+        }, 4000);
+        return () => clearTimeout(timeout2);
+    }, [state]);
 
     return (
         <Container>
