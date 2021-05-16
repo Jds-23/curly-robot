@@ -2,7 +2,6 @@ import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
 const Contact = () => {
-    // target="_blank" rel="noopener noreferrer" href="mailto:joydeepsingha68.work@gmail.com"
     const isTablet = useMediaQuery({ query: '(max-width: 768px)' })
     const isMobile = useMediaQuery({ query: '(max-width: 425px)' })
     return (
@@ -11,7 +10,7 @@ const Contact = () => {
                 isMobile={isMobile}>
                 I am looking for any new opportunities to learn and grow. So, if you have an interesting projects let me know.
             </TextBox>
-            <EmailLink >
+            <EmailLink target="_blank" rel="noopener noreferrer" href="mailto:joydeepsingha68.work@gmail.com">
                 <span className="front">
                     <span>
                         Say, Hi!
