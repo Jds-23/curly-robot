@@ -2,7 +2,7 @@ import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
 const Contact = () => {
-
+    // target="_blank" rel="noopener noreferrer" href="mailto:joydeepsingha68.work@gmail.com"
     const isTablet = useMediaQuery({ query: '(max-width: 768px)' })
     const isMobile = useMediaQuery({ query: '(max-width: 425px)' })
     return (
@@ -11,8 +11,12 @@ const Contact = () => {
                 isMobile={isMobile}>
                 I am looking for any new opportunities to learn and grow. So, if you have an interesting projects let me know.
             </TextBox>
-            <EmailLink target="_blank" rel="noopener noreferrer" href="mailto:joydeepsingha68.work@gmail.com">
-                Say, Hi!
+            <EmailLink >
+                <span className="front">
+                    <span>
+                        Say, Hi!
+                    </span>
+                </span>
             </EmailLink>
         </Container>
     )
@@ -41,22 +45,43 @@ margin-bottom:20px;
 ${props => props.isMobile && 'place-items:center;'}
 `
 const EmailLink = styled.a`
-  position: relative;
-  display: block;
-  overflow: hidden;
-  border:2px solid #7CDEDC;
-  border-radius:5px;
-  background-color:transparent;
-  padding: 10px 30px;
-  color:#7CDEDC;
-  font-size:18px;
+  color:#fff;
+  font-size:22px;
   font-weight:700;
-  transition: all 0.25s ease-in-out;
-  width:fit-content;
-  cursor:pointer;
+  background: linear-gradient(90deg, #00071C -5.0%, #59AAA8 5.0%, #59AAA8 95.0%, #00071C 105.0%);
+  border-radius: 5px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
   margin-top:25px;
-  &:hover {
-  color: #00071C;
-  background-color:#7CDEDC;
+  color:#00071C;
+  width: 170px;
+  height: 40px;
+  transition: filter 600ms;
+  & .front {
+    display:grid;
+    place-items:center;
+    border-radius: 5px;
+    width: 170px;
+    height: 40px;
+    background-color:  #7CDEDC;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+  }
+  &:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+  }
+  &:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  &:hover{
+      transition: filter 250ms;
+  filter: brightness(110%);
   }
 `
