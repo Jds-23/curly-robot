@@ -2,6 +2,10 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import { useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
+const Contact = dynamic(
+    () => import('@components/Contact'),
+    { ssr: false }
+)
 const Header = dynamic(
     () => import('@components/header'),
     { ssr: false }
@@ -62,6 +66,7 @@ const Home = () => {
                 <AboutMe isMobile={isMobile} isTablet={isTablet} />
                 <span ref={workRef} />
                 <Work />
+                <Contact />
                 <Footer />
             </Container>
             {!isMobile && <RightNav isTablet={isTablet} />}
