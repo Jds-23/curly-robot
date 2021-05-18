@@ -30,6 +30,10 @@ const Work = dynamic(
     () => import('@components/Work'),
     { ssr: false }
 )
+const Project = dynamic(
+    () => import('@components/Project'),
+    { ssr: false }
+)
 const Footer = dynamic(
     () => import('@components/Footer'),
     { ssr: false }
@@ -66,6 +70,7 @@ const Home = () => {
                 <AboutMe isMobile={isMobile} isTablet={isTablet} />
                 <span ref={workRef} />
                 <Work />
+                <Project />
                 <Contact />
                 <Footer />
             </Container>
