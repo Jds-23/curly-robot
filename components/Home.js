@@ -42,6 +42,7 @@ const Home = () => {
     const heroRef = useRef(null)
     const aboutMeRef = useRef(null)
     const workRef = useRef(null)
+    const projectRef = useRef(null)
     const isTablet = useMediaQuery({ query: '(max-width: 768px)' })
     const isMobile = useMediaQuery({ query: '(max-width: 425px)' })
     const heroScrollIntoView = () => {
@@ -59,9 +60,14 @@ const Home = () => {
             behavior: "smooth",
         });
     }
+    const projectScrollIntoView = () => {
+        projectRef.current.scrollIntoView({
+            behavior: "smooth",
+        });
+    }
     return (
         <div>
-            <Header heroScrollIntoView={heroScrollIntoView} aboutMeScrollIntoView={aboutMeScrollIntoView} workScrollIntoView={workScrollIntoView} />
+            <Header projectScrollIntoView={projectScrollIntoView} heroScrollIntoView={heroScrollIntoView} aboutMeScrollIntoView={aboutMeScrollIntoView} workScrollIntoView={workScrollIntoView} />
             {!isMobile && <LeftNav isTablet={isTablet} />}
             <Container isMobile={isMobile} isTablet={isTablet}>
                 <span ref={heroRef} />
@@ -70,6 +76,7 @@ const Home = () => {
                 <AboutMe isMobile={isMobile} isTablet={isTablet} />
                 <span ref={workRef} />
                 <Work />
+                <span ref={projectRef} />
                 <Project />
                 <Contact />
                 <Footer />
