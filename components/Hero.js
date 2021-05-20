@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import typewriter from "@utils/typewriter"
 const Hero = ({ isTablet, isMobile }) => {
-    const words = ["Web Applications.", "eCommerce Stores.", "Progressive Web Applications."]
+    const words = ["Web Applications.", "eCommerce Store.", "PWAs."]
     return (
         <Container >
             <Name isMobile={isMobile} isTablet={isTablet}>
