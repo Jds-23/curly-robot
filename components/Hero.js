@@ -13,6 +13,13 @@ const Hero = ({ isTablet, isMobile }) => {
             <SubTitle isMobile={isMobile} isTablet={isTablet}>
                 I develop <Span>{typewriter(words)}</Span>
             </SubTitle>
+            <EmailLink target="_blank" rel="noopener noreferrer" href="mailto:joydeepsingha68.work@gmail.com">
+                <span className="front">
+                    <span>
+                        Say, Hi!
+                    </span>
+                </span>
+            </EmailLink>
         </Container>
     )
 }
@@ -58,4 +65,45 @@ ${props => props.isMobile && 'font-size:27px;'}
 `
 const Span = styled.span`
 text-decoration:underline;
+`
+const EmailLink = styled.a`
+  color:#fff;
+  font-size:22px;
+  font-weight:700;
+  background: linear-gradient(90deg, #00071C -5.0%, #59AAA8 5.0%, #59AAA8 95.0%, #00071C 105.0%);
+  border-radius: 5px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  margin-top:25px;
+  color:#00071C;
+  width: 170px;
+  height: 40px;
+  transition: filter 600ms;
+  & .front {
+    display:grid;
+    place-items:center;
+    border-radius: 5px;
+    width: 170px;
+    height: 40px;
+    background-color:  #7CDEDC;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+  }
+  &:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+  }
+  &:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  &:hover{
+      transition: filter 250ms;
+  filter: brightness(110%);
+  }
 `
