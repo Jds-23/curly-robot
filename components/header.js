@@ -3,7 +3,8 @@ import { useMediaQuery } from 'react-responsive';
 import { useEffect, useRef, useState } from "react";
 const Header = ({ heroScrollIntoView,
     aboutMeScrollIntoView,
-    workScrollIntoView }) => {
+    workScrollIntoView,
+    projectScrollIntoView }) => {
     const isMobile = useMediaQuery({ query: '(max-width: 425px)' });
     const prevScrollY = useRef(0);
 
@@ -33,6 +34,7 @@ const Header = ({ heroScrollIntoView,
                 <NavItem onClick={heroScrollIntoView}>Home</NavItem>
                 <NavItem onClick={aboutMeScrollIntoView}>About Me</NavItem>
                 <NavItem onClick={workScrollIntoView}>Work</NavItem>
+                <NavItem onClick={projectScrollIntoView}>Project</NavItem>
             </Nav>
         </Container>
     )
