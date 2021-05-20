@@ -39,14 +39,14 @@ const Footer = dynamic(
     { ssr: false }
 )
 const Home = () => {
-    const heroRef = useRef(null)
+    const contactRef = useRef(null)
     const aboutMeRef = useRef(null)
     const workRef = useRef(null)
     const projectRef = useRef(null)
     const isTablet = useMediaQuery({ query: '(max-width: 768px)' })
     const isMobile = useMediaQuery({ query: '(max-width: 425px)' })
-    const heroScrollIntoView = () => {
-        heroRef.current.scrollIntoView({
+    const contactScrollIntoView = () => {
+        contactRef.current.scrollIntoView({
             behavior: "smooth",
         });
     }
@@ -67,10 +67,9 @@ const Home = () => {
     }
     return (
         <div>
-            <Header projectScrollIntoView={projectScrollIntoView} heroScrollIntoView={heroScrollIntoView} aboutMeScrollIntoView={aboutMeScrollIntoView} workScrollIntoView={workScrollIntoView} />
+            <Header projectScrollIntoView={projectScrollIntoView} contactScrollIntoView={contactScrollIntoView} aboutMeScrollIntoView={aboutMeScrollIntoView} workScrollIntoView={workScrollIntoView} />
             {!isMobile && <LeftNav isTablet={isTablet} />}
             <Container isMobile={isMobile} isTablet={isTablet}>
-                <span ref={heroRef} />
                 <Hero isMobile={isMobile} isTablet={isTablet} />
                 <span ref={aboutMeRef} />
                 <AboutMe isMobile={isMobile} isTablet={isTablet} />
@@ -78,6 +77,7 @@ const Home = () => {
                 <Work />
                 <span ref={projectRef} />
                 <Project />
+                <span ref={contactRef} />
                 <Contact />
                 <Footer />
             </Container>

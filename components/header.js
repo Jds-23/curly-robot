@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useMediaQuery } from 'react-responsive';
 import { useEffect, useRef, useState } from "react";
-const Header = ({ heroScrollIntoView,
+const Header = ({ contactScrollIntoView,
     aboutMeScrollIntoView,
     workScrollIntoView,
     projectScrollIntoView }) => {
@@ -31,10 +31,10 @@ const Header = ({ heroScrollIntoView,
         <Container goingUp={goingUp} isMobile={isMobile}>
             <Brand src="./joydeep.svg" />
             <Nav>
-                <NavItem onClick={heroScrollIntoView}>Home</NavItem>
                 <NavItem onClick={aboutMeScrollIntoView}>About Me</NavItem>
                 <NavItem onClick={workScrollIntoView}>Work</NavItem>
                 <NavItem onClick={projectScrollIntoView}>Project</NavItem>
+                <NavItem onClick={contactScrollIntoView}>Contact</NavItem>
             </Nav>
         </Container>
     )
