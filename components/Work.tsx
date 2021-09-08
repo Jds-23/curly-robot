@@ -19,7 +19,8 @@ const Work = () => {
     {
       id: 2,
       imgSrc: "./corpworx.png",
-      desc: "A Portal where students and startup can register and build their profile. Student can look for job oppurnities and startup for talents.",
+      desc:
+        "A Portal where students and startup can register and build their profile. Student can look for job oppurnities and startup for talents.",
       projectName: "Corpworx Connect",
       techStack: ["MaterialUI", "ReactJs"],
     },
@@ -48,7 +49,7 @@ const Work = () => {
 export default Work;
 const Container = styled.div`
   min-height: 100vh;
-  background-color: #00071c;
+  /* background-color: #00071c; */
   width: 100%;
   display: grid;
   place-items: center;

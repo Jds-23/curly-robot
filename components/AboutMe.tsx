@@ -38,7 +38,7 @@ const AboutMe = ({ isTablet, isMobile }) => {
 export default AboutMe;
 const Container = styled.div`
   min-height: 100vh;
-  background-color: #00071c;
+  /* background-color: #00071c; */
   width: 100%;
   display: grid;
   ${(props) =>

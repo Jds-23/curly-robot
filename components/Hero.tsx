@@ -29,7 +29,6 @@ const Hero = ({ isTablet, isMobile }) => {
 export default Hero;
 const Container = styled.div`
   min-height: 100vh;
-  background-color: #00071c;
   width: 100%;
   display: flex;
   flex-direction: column;
